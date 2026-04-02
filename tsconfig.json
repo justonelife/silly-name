@@ -5,6 +5,9 @@
   "references": [
     {
       "path": "./apps/la-bidder-v0"
+    },
+    {
+      "path": "./packages/shared-assets"
     }
   ]
 }

@@ -1,0 +1,5 @@
+.card {
+  /* --Primary-Gd-2: linear-gradient(180deg, #3461ff 0%, #8454eb 100%); */
+  border-color: var(--Primary-Gd-2, #3461ff);
+  background: rgba(22, 26, 66, 0.7);
+}

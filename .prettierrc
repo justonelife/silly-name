@@ -1,3 +1,11 @@
 {
-  "singleQuote": true
+  "singleQuote": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 80,
+  "semi": true,
+  "bracketSpacing": true,
+  "trailingComma": "es5",
+  "htmlWhitespaceSensitivity": "ignore",
+  "endOfLine": "auto"
 }

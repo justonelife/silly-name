@@ -1,0 +1,10 @@
+.bidder-card {
+  border-color: var(--Colors-Light-Blue-800, #075985);
+  background: linear-gradient(
+    162deg,
+    #161a42 22.61%,
+    rgba(96, 8, 152, 0.5) 118.29%
+  );
+  backdrop-filter: blur(calc(var(--blur-S, 24px) / 2));
+  height: 1016px;
+}

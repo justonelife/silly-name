@@ -1,0 +1,14 @@
+{
+  "name": "@org/shared-assets",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./svgs/*": "./svgs/*",
+    "./package.json": "./package.json"
+  },
+  "nx": {
+    "name": "shared-assets"
+  },
+  "dependencies": {}
+}
