@@ -65,10 +65,10 @@
     "react-dom": "^19.0.0"
   },
   "lint-staged": {
-    "*.{js,json,ts,html,css,scss}": [
+    "*.{js,json,ts,html,css,scss,tsx,jsx}": [
       "prettier --write"
     ],
-    "*.{js,ts,html}": [
+    "*.{js,ts,html,tsx,jsx}": [
       "eslint --max-warnings=1"
     ]
   }
