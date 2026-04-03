@@ -9,3 +9,14 @@
 .bg-primary {
   background: linear-gradient(180deg, #15121d 0%, #6033e1 45%, #7804b7 100%);
 }
+
+.button--special {
+  background: linear-gradient(
+    92deg,
+    #ff56f6 21.43%,
+    #b936ee 50.63%,
+    #3bace2 100%,
+    #406aff 117.04%
+  );
+  box-shadow: 0 4px 97px 0 rgba(255, 86, 246, 0.51);
+}
