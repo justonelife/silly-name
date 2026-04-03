@@ -1,3 +1,4 @@
+import MonthlyItemsSearch from '@/components/monthly-items-search/monthly-items-search';
 import TopItems from '@/components/top-items/top-items';
 import Button from '@/components/ui/button/button';
 import { Outfit } from 'next/font/google';
@@ -9,7 +10,8 @@ const outfit = Outfit();
 export default function Index() {
   return (
     <div className="pt-[72px]">
-      <div className="space-y-20 px-4">
+      {/* SECTION TOP */}
+      <div className="space-y-20 px-10 pb-[110px]">
         <div className="space-y-10">
           <p className="text-6xl font-bold leading-[82px]">
             Discover, find, and sell Labubu NFTs
@@ -43,6 +45,13 @@ export default function Index() {
             <TopItems></TopItems>
           </div>
         </div>
+      </div>
+
+      {/* END SECTION TOP */}
+
+      {/* SECTION BOTTOM */}
+      <div className="pt-[145px]">
+        <MonthlyItemsSearch></MonthlyItemsSearch>
       </div>
     </div>
   );

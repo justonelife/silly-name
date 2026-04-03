@@ -14,9 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={orbitron.className}>
-      <body className="bg-primary h-svh w-screen text-white">
+      <body className="bg-primary h-full w-screen text-white">
         <div className="flex w-[1366px] mx-auto">
-          <main className="grow p-8">
+          <main className="grow pt-8 pb-[122px]">
             <Header></Header>
             {children}
           </main>

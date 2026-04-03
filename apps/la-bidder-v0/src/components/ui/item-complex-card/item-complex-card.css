@@ -1,0 +1,12 @@
+.item-complex-card__image {
+  background: url('/labubus/blue-background.png') transparent -49.711px -24.983px /
+    128.81% 111.721% no-repeat;
+}
+
+.item-complex-card__controls {
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0.07) 43.76%,
+    rgba(255, 255, 255, 0.01) 80.87%
+  );
+}
