@@ -5,7 +5,9 @@ import SomethingAdd from './something-add/something-add';
 import { Outfit } from 'next/font/google';
 import BiddingItem from './bidding-item/bidding-item';
 
-const outfit = Outfit();
+const outfit = Outfit({
+  subsets: ['latin'],
+});
 
 export default function BidderCard(): React.ReactNode {
   return (

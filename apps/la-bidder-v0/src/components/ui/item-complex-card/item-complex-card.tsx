@@ -4,7 +4,9 @@ import { Outfit } from 'next/font/google';
 import Image from 'next/image';
 import Badge from '@/components/ui/badge/badge';
 
-const outfit = Outfit();
+const outfit = Outfit({
+  subsets: ['latin'],
+});
 
 export default function ItemComplexCard(): React.ReactNode {
   {

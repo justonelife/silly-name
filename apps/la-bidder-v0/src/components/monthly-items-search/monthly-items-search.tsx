@@ -2,7 +2,9 @@ import { Outfit } from 'next/font/google';
 import Autocomplete from '@/components/ui/autocomplete/autocomplete';
 import MonthlyItemsSearchList from './list/list';
 
-const outfit = Outfit();
+const outfit = Outfit({
+  subsets: ['latin'],
+});
 
 export default function MonthlyItemsSearch(): React.ReactNode {
   return (

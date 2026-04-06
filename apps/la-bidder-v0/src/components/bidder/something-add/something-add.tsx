@@ -3,7 +3,9 @@ import Card from '@/components/ui/card/card';
 import { Outfit } from 'next/font/google';
 import Image from 'next/image';
 
-const outfit = Outfit();
+const outfit = Outfit({
+  subsets: ['latin'],
+});
 
 export default function SomethingAdd(): React.ReactNode {
   return (

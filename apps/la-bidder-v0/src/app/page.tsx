@@ -1,11 +1,12 @@
 import MonthlyItemsSearch from '@/components/monthly-items-search/monthly-items-search';
 import TopItems from '@/components/top-items/top-items';
-import Button from '@/components/ui/button/button';
 import { Outfit } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const outfit = Outfit();
+const outfit = Outfit({
+  subsets: ['latin'],
+});
 
 export default function Index() {
   return (
@@ -22,9 +23,12 @@ export default function Index() {
             tokens
           </p>
 
-          <Button className="button--special rounded-sm backdrop-blur-[96px] border-2 border-solid border-[#ffa6fa] flex items-center justify-center px-24 py-[18px] text-lg font-bold">
+          <Link
+            href="/explore"
+            className="button--special inline-block rounded-sm backdrop-blur-[96px] border-2 border-solid border-[#ffa6fa] px-24 py-[18px] text-lg font-bold leading-5"
+          >
             Explore
-          </Button>
+          </Link>
         </div>
 
         <div className="space-y-12">
