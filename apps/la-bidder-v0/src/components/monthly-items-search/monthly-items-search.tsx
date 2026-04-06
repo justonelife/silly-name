@@ -1,5 +1,5 @@
 import { Outfit } from 'next/font/google';
-import Autocomplete from '@/components/ui/autocomplete/autocomplete';
+import Input from '@/components/ui/input/input';
 import MonthlyItemsSearchList from './list/list';
 
 const outfit = Outfit({
@@ -23,8 +23,8 @@ export default function MonthlyItemsSearch(): React.ReactNode {
         </p>
 
         <div className="flex justify-center">
-          {/* TODO: Implement Autocomplete */}
-          <Autocomplete></Autocomplete>
+          {/* TODO: Implement Input */}
+          <Input></Input>
         </div>
       </div>
 

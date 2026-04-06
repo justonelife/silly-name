@@ -1,0 +1,25 @@
+.input {
+  --color-alpha-darken-100: rgba(0, 0, 0, 0.1);
+  background: var(--color-alpha-darken-100);
+  border-color: #ffa6fa;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.input:focus-within {
+  border-color: #ff6cf7;
+  box-shadow: 0 0 0 3px rgba(255, 106, 247, 0.25);
+}
+
+.input[data-invalid] {
+  border-color: #f87171;
+}
+
+.input[data-invalid]:focus-within {
+  box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.25);
+}
+
+.input[data-disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

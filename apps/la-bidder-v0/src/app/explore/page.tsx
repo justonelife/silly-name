@@ -1,11 +1,17 @@
-import Autocomplete from '@/components/ui/autocomplete/autocomplete';
+import Input from '@/components/ui/input/input';
 import ItemComplexCard from '@/components/ui/item-complex-card/item-complex-card';
+import Search from '@/assets/icons/search.svg';
 
 export default function Index(): React.ReactNode {
   return (
     <div>
       <div className="pt-12 px-10 pb-6 flex flex-col gap-6 items-center">
-        <Autocomplete></Autocomplete>
+        <Input
+          wrapperClassName="w-[420px]"
+          placeholder="Search..."
+          aria-label="Search items"
+          prefix={<Search />}
+        />
         <div>tags</div>
       </div>
 
