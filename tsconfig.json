@@ -8,6 +8,15 @@
     },
     {
       "path": "./packages/shared-assets"
+    },
+    {
+      "path": "./apps/la-bidder-api-e2e"
+    },
+    {
+      "path": "./apps/la-bidder-api"
+    },
+    {
+      "path": "./packages/shared-types"
     }
   ]
 }
