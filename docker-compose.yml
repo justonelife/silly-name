@@ -20,7 +20,7 @@ services:
     image: dpage/pgadmin4:latest
     container_name: la-bidder-pgadmin
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@labidder.local
+      PGADMIN_DEFAULT_EMAIL: admin@labidder.com
       PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - '5050:80'

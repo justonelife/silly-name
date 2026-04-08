@@ -59,6 +59,13 @@
           "buildTarget": "la-bidder-api:build:production"
         }
       }
+    },
+    "seed": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node -P apps/la-bidder-api/tsconfig.app.json -r tsconfig-paths/register apps/la-bidder-api/src/seed-main.ts",
+        "cwd": "."
+      }
     }
   },
   "tags": []

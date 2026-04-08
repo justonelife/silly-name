@@ -6,6 +6,8 @@
     "lint": "npx nx run-many --target=lint",
     "lint:fix": "npx nx run-many --target=lint --fix",
     "dev:v0": "npx nx dev la-bidder-v0",
+    "seed:clean": "docker exec la-bidder-postgres psql -U labidder -d labidder -c \"TRUNCATE items, bids CASCADE;\"",
+    "seed": "npx nx seed la-bidder-api",
     "prepare": "husky",
     "swagger:generate": "ts-node -P apps/la-bidder-api/tsconfig.app.json -r tsconfig-paths/register scripts/generate-swagger.ts",
     "swagger:watch": "nodemon --watch apps/la-bidder-api/src -e ts,json --exec \"npm run swagger:generate\""
