@@ -11,21 +11,21 @@ import { Item } from './item.entity';
 @Entity('bids')
 export class Bid {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column()
-  itemId: string;
+  itemId!: string;
 
   @ManyToOne(() => Item, (item) => item.bids, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'itemId' })
-  item: Item;
+  item!: Item;
 
   @Column()
-  userId: string;
+  userId!: string;
 
   @Column('decimal', { precision: 18, scale: 6 })
-  amount: number;
+  amount!: number;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 }

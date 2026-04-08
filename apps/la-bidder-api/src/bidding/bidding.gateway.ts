@@ -16,7 +16,7 @@ export class BiddingGateway
   implements OnGatewayConnection, OnGatewayDisconnect
 {
   @WebSocketServer()
-  server: Server;
+  server!: Server;
 
   private readonly logger = new Logger(BiddingGateway.name);
 

@@ -1,0 +1,261 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/items": {
+      "get": {
+        "operationId": "ItemsController_findAll",
+        "parameters": [
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of paginated items retrieved successfully."
+          }
+        },
+        "summary": "Get all items with pagination",
+        "tags": ["Items"]
+      }
+    },
+    "/items/{id}": {
+      "get": {
+        "operationId": "ItemsController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "UUID of the item",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Item found"
+          },
+          "404": {
+            "description": "Item not found"
+          }
+        },
+        "summary": "Get a specific item by its ID",
+        "tags": ["Items"]
+      }
+    },
+    "/items/{id}/bids": {
+      "get": {
+        "operationId": "ItemsController_findBids",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "UUID of the item",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "required": false,
+            "in": "query",
+            "schema": {
+              "example": "1",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of paginated bids for the item."
+          }
+        },
+        "summary": "Get bids for a specific item",
+        "tags": ["Items"]
+      },
+      "post": {
+        "operationId": "ItemsController_placeBid",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "UUID of the item",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PlaceBidDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Bid placed successfully."
+          },
+          "400": {
+            "description": "Validation failed or item ended."
+          }
+        },
+        "summary": "Place a bid on a specific item",
+        "tags": ["Items"]
+      }
+    },
+    "/admin/items": {
+      "post": {
+        "operationId": "AdminController_createItem",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateItemDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The item has been successfully created."
+          },
+          "400": {
+            "description": "Validation failed."
+          },
+          "403": {
+            "description": "Unauthorized admin key."
+          }
+        },
+        "security": [
+          {
+            "X-Admin-Key": []
+          }
+        ],
+        "summary": "Create a new auction item (Admin only)",
+        "tags": ["Admin"]
+      }
+    }
+  },
+  "info": {
+    "title": "LA Bidder API",
+    "description": "The API documentation for the LA Bidder app",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "JWT-auth": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http",
+        "name": "JWT",
+        "in": "header"
+      },
+      "X-Admin-Key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Admin-Key",
+        "description": "Admin access key"
+      }
+    },
+    "schemas": {
+      "PlaceBidDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "description": "UUIDv4 representing the user",
+            "example": "550e8400-e29b-41d4-a716-446655440000"
+          },
+          "amount": {
+            "type": "number",
+            "description": "The bid amount",
+            "example": 10.5
+          }
+        },
+        "required": ["userId", "amount"]
+      },
+      "CreateItemDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The title of the auction item",
+            "example": "Vintage Chair"
+          },
+          "creator": {
+            "type": "string",
+            "description": "The name of the creator or seller",
+            "example": "John Doe"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description",
+            "example": "A lovely vintage chair from 1980."
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "URL to an image of the item",
+            "example": "https://example.com/chair.jpg"
+          },
+          "tags": {
+            "description": "Categorization tags",
+            "example": ["furniture", "vintage"],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "startingPrice": {
+            "type": "number",
+            "description": "Starting bid price",
+            "example": 10
+          },
+          "auctionDurationHours": {
+            "type": "number",
+            "description": "Duration of the auction in hours",
+            "example": 24,
+            "minimum": 1,
+            "maximum": 720
+          }
+        },
+        "required": ["name", "creator", "startingPrice", "auctionDurationHours"]
+      }
+    }
+  }
+}

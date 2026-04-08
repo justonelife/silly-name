@@ -6,7 +6,9 @@
     "lint": "npx nx run-many --target=lint",
     "lint:fix": "npx nx run-many --target=lint --fix",
     "dev:v0": "npx nx dev la-bidder-v0",
-    "prepare": "husky"
+    "prepare": "husky",
+    "swagger:generate": "ts-node -P apps/la-bidder-api/tsconfig.app.json -r tsconfig-paths/register scripts/generate-swagger.ts",
+    "swagger:watch": "nodemon --watch apps/la-bidder-api/src -e ts,json --exec \"npm run swagger:generate\""
   },
   "private": true,
   "devDependencies": {
@@ -68,6 +70,7 @@
     "@nestjs/platform-express": "^11.1.18",
     "@nestjs/platform-socket.io": "^11.1.18",
     "@nestjs/schedule": "^6.1.1",
+    "@nestjs/swagger": "^11.2.6",
     "@nestjs/typeorm": "^11.0.1",
     "@nestjs/websockets": "^11.1.18",
     "class-transformer": "^0.5.1",

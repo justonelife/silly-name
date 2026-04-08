@@ -13,44 +13,44 @@ export type ItemStatus = 'LIVE' | 'ENDED';
 @Entity('items')
 export class Item {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column()
-  name: string;
+  name!: string;
 
   @Column()
-  creator: string;
+  creator!: string;
 
   @Column({ nullable: true })
-  description: string;
+  description!: string;
 
   @Column({ nullable: true })
-  imageUrl: string;
+  imageUrl!: string;
 
-  @Column('text', { array: true, default: [] })
-  tags: string[];
+  @Column('simple-array', { nullable: true })
+  tags!: string[];
 
-  @Column('decimal', { precision: 18, scale: 6 })
-  startingPrice: number;
+  @Column('decimal', { precision: 12, scale: 6 })
+  startingPrice!: number;
 
-  @Column('decimal', { precision: 18, scale: 6 })
-  currentPrice: number;
+  @Column('decimal', { precision: 12, scale: 6 })
+  currentPrice!: number;
 
-  @Column({ default: 24 })
-  auctionDurationHours: number;
+  @Column()
+  auctionDurationHours!: number;
 
-  @Column({ type: 'timestamptz' })
-  auctionEndAt: Date;
+  @Column({ type: 'timestamp' })
+  auctionEndAt!: Date;
 
-  @Column({ default: 'LIVE' })
-  status: ItemStatus;
+  @Column({ type: 'varchar', default: 'LIVE' })
+  status!: ItemStatus;
 
   @OneToMany(() => Bid, (bid) => bid.item)
-  bids: Bid[];
+  bids!: Bid[];
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }
